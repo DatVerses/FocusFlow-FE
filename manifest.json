@@ -12,5 +12,8 @@
   },
   "icons": {
     "48": "icon.png"
-  }
+  },
+  "host_permissions": [
+  "<all_urls>"
+]
 }
