@@ -11,16 +11,15 @@ function checkDistraction(url) {
 
     if (!isEnabled) return;
 
-    for (let site of distractions) {
-      if (url.includes(site)) {
-        chrome.notifications.create({
-          type: "basic",
-          iconUrl: "icon.png",
-          title: "Tập trung nào!",
-          message: `Bạn đang vào ${site} - Hãy quay lại công việc nhé!`
-        });
-        break;
-      }
-    }
+    Notification.requestPermission().then(permission => {
+  if (permission === "granted") {
+    chrome.notifications.create({
+      type: "basic",
+      iconUrl: "icon.png",
+      title: "Tập trung nào!",
+      message: `Bạn đang vào trang gây xao nhãng!`
+    });
+  }
+});
   });
 }
